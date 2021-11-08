@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:fragment="header">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
+                                </div>
+                                <form class="user" action="#" method="POST" th:action="@{|/updateTeam/${id}|}"  th:object="${team}" >
+                                    <div class="form-group">
+                                        <input type="text" required="required" class="form-control form-control-user" placeholder="teamName" th:field="${team.teamName}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" required="required" class="form-control form-control-user" placeholder="PhoneNo" th:field="${team.phoneNo}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" required="required" class="form-control form-control-user" placeholder="state" th:field="${team.state}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" required="required" class="form-control form-control-user" placeholder="city" th:field="${team.city}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="integer" required="required" class="form-control form-control-user" placeholder="pin" th:field="${team.pin}">
+                                    </div>
+
+
+
+                                    <button style="color:white;" type="submit" class="btn btn-primary btn-user btn-block">
+                                        Update team
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script th:replace="site/layouts/toast :: toast"></script>-->
+</body>
+</html>

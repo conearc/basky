@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>teamId</th>
+                <th>teamName</th>
+                <th>phoneNo</th>
+                <th>state</th>
+                <th>city</th>
+                <th>pin</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team: ${teams}">
+                <td th:text="${team.teamId}"></td>
+                <td th:text="${team.teamName}"></td>
+                <td th:text="${team.phoneNo}"></td>
+                <td th:text="${team.state}"></td>
+                <td th:text="${team.city}"></td>
+                <td th:text="${team.pin}"></td>
+                <td >
+                    <button>
+                        <a th:href="@{|/updateTeam/${team.teamId}|}" >Update Team</a>
+                    </button>
+                </td>
+                <!--                <td th:text="${#dates.format(player.dob, 'dd-MM-yyyy')}"></td>-->
+                <!--                <td>-->
+                <!--&lt;!&ndash;                    <a th:href="${'/dashboard/manage/player/' + player.id}" class="btn-sm btn-primary">&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <span class="text">Manage</span>&ndash;&gt;-->
+                <!--                    </a>-->
+                <!--                </td>-->
+            </tr>
+            </tbody>
+        </table>
+        <button>
+            <a href="/createTeam" >create team </a>
+        </button>
+        <br>
+
+    </div></div>
+</body>
+</html>
