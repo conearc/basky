@@ -51,38 +51,6 @@ public class UserController {
         messageService.redirectWithSuccessMessage(redirectAttributes, "Successfully created admin user.");
         return "redirect:/";
     }
-    @GetMapping("/createCoach")
-    public String loginCoach(Model model, HttpSession session) {
-        model.addAttribute("user", new User());
-        model.addAttribute("coach", new Coach());
-        return "createCoach";
-    }
-
-    @PostMapping("/createCoach")
-    public String postLoginCoach(@ModelAttribute User user,@ModelAttribute Coach coach, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
-
-        String username = user.getUsername();
-        String password = user.getPassword();
-        String errorMessage = null;
-
-        System.out.println(username);
-        System.out.println(coach.getFirstName());
-        System.out.println(coach.getDob());
-        System.out.println(coach.getFirstName());
-        if (userService.checkIfUserExists(username)) {
-            errorMessage= "This username already exists";
-            messageService.displayErrorMessage(model, errorMessage);
-            System.out.println(errorMessage);
-            model.addAttribute("user", new User());
-            model.addAttribute("coach", new Coach());
-            return "createCoach";
-        }
-
-        userService.createCoach(username,password,coach);
-
-        messageService.redirectWithSuccessMessage(redirectAttributes, "Successfully created coach user.");
-        return "redirect:/";
-    }
 
 
 }
