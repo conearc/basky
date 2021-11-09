@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> thara bhai </h1>
-<button>
-    <a href="/createTeam" >create team </a>
-</button>
-<br>
-<button>
-    <a href="/createCoach" >create coach</a>
-</button>
-<br>
-<button>
-    <a href="/teams" >see all teams</a>
-</button>
+<head th:fragment="header" th:replace="header :: header">
+<body >
+<div class="qwerty" >
+
+    <!--
+
+Follow me on
+Dribbble: https://dribbble.com/supahfunk
+Twitter: https://twitter.com/supahfunk
+Codepen: https://codepen.io/supah/
+
+-->
+    <div class="leaderboard">
+        <h1>
+            <svg class="ico-cup">
+                <use xlink:href="#cup"></use>
+            </svg>
+            LeaderBoard
+        </h1>
+        <table>
+            <tr th:each="team : ${teams}">
+                <td  th:text="${team.teamName}">Mumbai Indians</td> <td th:text="${team.numberOfWins}">5</td> <td th:text="${team.numberOfLosses}">2</td> <td th:text="${team.pointsScored}">7</td> <td th:text="${team.pointsAgainst}">4</td>
+            </tr>
+
+
+        </table>
+    </div>
+    <div class="rowm">
+<div class=" row justify-content-center d-flex align-items-center">
+    <div class="col-lg-4">
+        <button class="button"   >
+            <a href="/createTeam" class="button-link" >create team </a>
+        </button>
+    </div>
+    <div class="col-lg-4">
+        <button class="button">
+            <a href="/createCoach" class="button-link" >create coach</a>
+        </button>
+    </div>
+    <div class="col-lg-4">
+        <button class="button">
+            <a href="/teams" class="button-link" >see all teams</a>
+        </button>
+    </div>
+</div>
+    </div>
+
+
+
+</div>
 </body>
 </html>

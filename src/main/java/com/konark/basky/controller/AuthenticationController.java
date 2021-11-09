@@ -20,10 +20,7 @@ public class AuthenticationController {
 
     @Autowired
     private MessageService messageService;
-    @GetMapping("/")
-    public String home(){
-        return "homePage";
-    }
+
     @GetMapping("/login")
     public String login(Model model, HttpSession session) {
         if (authenticationService.isAuthenticated(session)) {
