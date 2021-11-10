@@ -1,5 +1,7 @@
 package com.konark.basky.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Umpire {
@@ -7,6 +9,7 @@ public class Umpire {
     private String firstName;
     private String lastName;
     private String phoneNo;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dob;
     private int pin;
     private String city;

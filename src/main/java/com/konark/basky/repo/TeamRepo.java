@@ -42,9 +42,9 @@ public class TeamRepo {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Team.class));
     }
     public void update(Team team) {
-        String sql = "UPDATE team SET teamName=?, phoneNo=?, state =?, city=?, pin=? WHERE id = ?";
+        String sql = "UPDATE team SET teamName=?, phoneNo=?, state =?, city=?, pin=? WHERE teamId = ?";
         System.out.println(team.getTeamName());
         jdbcTemplate.update(
-                sql, team.getTeamName(), team.getPhoneNo(),team.getState(),team.getCity(),team.getPin(),team.getTeamId());
+                sql, team.getTeamName(),  team.getPhoneNo(),team.getState(),team.getCity(),team.getPin(),team.getTeamId());
     }
 }

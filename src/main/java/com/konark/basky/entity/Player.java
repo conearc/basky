@@ -2,6 +2,7 @@ package com.konark.basky.entity;
 
 
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -11,6 +12,7 @@ public class Player {
     private String firstName;
     private String lastName;
     private String PhoneNo;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dob;
     private int pin;
     private String city;

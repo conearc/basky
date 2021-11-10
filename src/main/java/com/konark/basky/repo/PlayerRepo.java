@@ -22,13 +22,15 @@ public class PlayerRepo {
     public void createPlayer(Player player)
     {
         String sql = "INSERT INTO player(  firstName, lastName,  phoneNo,  dob,  pin,  city,  houseNo,  street,  teamId) VALUES (?, ?, ?,?,?,?,?,?,?)";
+        System.out.println(player.getPlayerId());
         jdbcTemplate.update(sql,player.getFirstName(),player.getLastName(),player.getPhoneNo(),player.getDob(),player.getPin(),player.getCity(),player.getHouseNo(),player.getStreet(),player.getTeamId());
     }
     public void update(Player player) {
-        String sql = "UPDATE  player SET firstName =?, lastName =?,  phoneNo=?,  dob=?,  pin=?,  city=?,  houseNo=?,  street=? where playerId=?";
 
+        String sql = "UPDATE  player SET firstName =?, lastName =?,  phoneNo=?,  dob=?,  pin=?,  city=?,  houseNo=?,  street=? ,teamId=? where playerId=?";
+        System.out.println(player.getPlayerId());
         System.out.println(player.getFirstName());
-        jdbcTemplate.update(sql,player.getFirstName(),player.getLastName(),player.getPhoneNo(),player.getDob(),player.getPin(),player.getCity(),player.getHouseNo(),player.getStreet(),player.getPlayerId());
+        jdbcTemplate.update(sql,player.getFirstName(),player.getLastName(),player.getPhoneNo(),player.getDob(),player.getPin(),player.getCity(),player.getHouseNo(),player.getStreet(),player.getTeamId(),player.getPlayerId());
 
     }
     public List<Player> getAllPlayers() {
