@@ -21,7 +21,7 @@ public class UmpireRepo {
     public void createUmpire(Umpire umpire)
     {
         String sql = "INSERT INTO umpire( firstName, lastName,  phoneNo,  dob, pin, city, houseNo, street) VALUES (?, ?, ?,?,?,?,?,?)";
-        jdbcTemplate.update(sql,umpire.getFirstName(),umpire.getLastName(),umpire.getPhoneNo(),umpire.getDob(),umpire.getPin(),umpire.getCity(),umpire.getHouseNo(),umpire.getStreet(),umpire.getUmpireId());
+        jdbcTemplate.update(sql,umpire.getFirstName(),umpire.getLastName(),umpire.getPhoneNo(),umpire.getDob(),umpire.getPin(),umpire.getCity(),umpire.getHouseNo(),umpire.getStreet());
     }
     public void update(Umpire umpire) {
         String sql = "UPDATE  umpire SET firstName =?, lastName =?,  phoneNo=?,  dob=?,  pin=?,  city=?,  houseNo=?,  street=? where umpireId=?";
