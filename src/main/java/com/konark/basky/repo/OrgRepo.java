@@ -21,13 +21,14 @@ public class OrgRepo {
     public void createOrg(Org org)
     {
         String sql = "INSERT INTO org( firstName,lastName, phoneNo,dob,role) VALUES (?, ?, ?,?,?)";
-        jdbcTemplate.update(sql,org.getFirstname(),org.getLastName(),org.getPhoneNo(),org.getDob(),org.getRole());
+        System.out.println(org.getRole());
+        jdbcTemplate.update(sql,org.getFirstName(),org.getLastName(),org.getPhoneNo(),org.getDob(),org.getRole());
     }
     public void update(Org org) {
-        String sql = "UPDATE  org SET firstName =?, lastName=?,phoneNo =?,  dob=? ,role=?where orgId=?";
+        String sql = "UPDATE  org SET firstName =?, lastName=?,phoneNo =?,  dob=? ,role=? where orgId=?";
 
-        System.out.println(org.getFirstname());
-        jdbcTemplate.update(sql,org.getFirstname(),org.getLastName(),org.getPhoneNo(),org.getDob(),org.getRole());
+        System.out.println(org.getFirstName());
+        jdbcTemplate.update(sql,org.getFirstName(),org.getLastName(),org.getPhoneNo(),org.getDob(),org.getRole(),org.getOrgId());
 
     }
     public List<Org> getAllOrgs() {

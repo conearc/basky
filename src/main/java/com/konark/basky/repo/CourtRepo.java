@@ -27,7 +27,7 @@ public class CourtRepo {
         String sql = "UPDATE  court SET courtName =?, landmark =?,  capacity=? where courtId=?";
 
         System.out.println(court.getCourtName());
-        jdbcTemplate.update(sql,court.getCourtName(),court.getLandmark(),court.getCapacity());
+        jdbcTemplate.update(sql,court.getCourtName(),court.getLandmark(),court.getCapacity(),court.getCourtId());
 
     }
     public List<Court> getAllCourts() {

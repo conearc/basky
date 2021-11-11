@@ -1,26 +1,17 @@
 package com.konark.basky.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Org {
     private int orgId;
-    private int firstname;
-    private int LastName;
+    private String firstName;
+    private String LastName;
     private String phoneNo;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dob;
     private String role;
-
-    public Org(int orgId, int firstname, int lastName, String phoneNo, Date dob, String role) {
-        this.orgId = orgId;
-        this.firstname = firstname;
-        LastName = lastName;
-        this.phoneNo = phoneNo;
-        this.dob = dob;
-        this.role = role;
-    }
-
-    public Org() {
-    }
 
     public int getOrgId() {
         return orgId;
@@ -30,19 +21,19 @@ public class Org {
         this.orgId = orgId;
     }
 
-    public int getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(int firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public int getLastName() {
+    public String getLastName() {
         return LastName;
     }
 
-    public void setLastName(int lastName) {
+    public void setLastName(String lastName) {
         LastName = lastName;
     }
 
@@ -68,17 +59,5 @@ public class Org {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "Org{" +
-                "orgId=" + orgId +
-                ", firstname=" + firstname +
-                ", LastName=" + LastName +
-                ", phoneNo=" + phoneNo +
-                ", dob=" + dob +
-                ", role='" + role + '\'' +
-                '}';
     }
 }

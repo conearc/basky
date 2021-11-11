@@ -255,7 +255,9 @@ body{
 }
 body {
     background-image: url("basketball.jpg");
-    background-size: cover;
+    background-size: 900px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .card-body {
@@ -264,5 +266,5 @@ body {
 
 }
 .tableRow{
-    background-color: red;
+    background-color: #f39264;
 }
