@@ -20,14 +20,14 @@ public class BasketRepo {
     }
     public void createBasket(Basket basket)
     {
-        String sql = "INSERT INTO basket(time, playerId,,matchId) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql,basket.getTime(),basket.getPlayerId(),basket.getMatchId());
+        String sql = "INSERT INTO basket(  time , playerId , matchId , value) VALUES ( ? , ?, ? , ?)";
+        jdbcTemplate.update(sql,basket.getTime(),basket.getPlayerId(),basket.getMatchId(), basket.getValue());
     }
     public void update(Basket basket) {
-        String sql = "UPDATE  basket SET time =?, playerId =?,  matchId=? where basketId=?";
+        String sql = "UPDATE  basket SET time =?, playerId =?,  matchId=? ,value=? where basketId=?";
 
         System.out.println(basket.getPlayerId());
-        jdbcTemplate.update(sql,basket.getTime(),basket.getPlayerId(),basket.getMatchId());
+        jdbcTemplate.update(sql,basket.getTime(),basket.getPlayerId(),basket.getMatchId(),basket.getValue(), basket.getBasketId());
 
     }
     public List<Basket> getAllBaskets() {

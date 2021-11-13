@@ -10,14 +10,14 @@ import java.util.List;
 
 @Repository
 public class MatchRepo {
-//    @Autowired
-//    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 //
-//    public Match getMatchById(int matchId)
-//    {
-//        String sql = "SELECT * FROM match WHERE matchId = ?";
-//        return jdbcTemplate.queryForObject(sql,  new BeanPropertyRowMapper<>(Match.class) , new Object[] {matchId});
-//    }
+    public Match getMatchById(int matchId)
+    {
+        String sql = "SELECT * FROM basky.match WHERE matchId = ?";
+        return jdbcTemplate.queryForObject(sql,  new BeanPropertyRowMapper<>(Match.class) , new Object[] {matchId});
+    }
 //    public void createMatch(Match match)
 //    {
 //        String sql = "INSERT INTO match(   team1Id,  team2Id, team1Score,  team2Score,  umpireId,  sponsorId,  orgId,  courtId,  manOfMatch) VALUES (?, ?, ?,?,?,?,?,?,?)";
@@ -30,8 +30,8 @@ public class MatchRepo {
 //        jdbcTemplate.update(sql,match.getTeam1Id(),match.getTeam2Id(),match.getTeam1Score(),match.getTeam2Score(),match.getUmpireId(),match.getSponsorId(),match.getOrgId(),match.getCourtId(),match.getManOfMatch(),match.getMatchId());
 //
 //    }
-//    public List<Match> getAllMatchs() {
-//        String sql = "SELECT * FROM match;";
-//        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Match.class));
-//    }
+    public List<Match> getAllMatchs() {
+        String sql = "SELECT * FROM basky.match;";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Match.class));
+    }
 }

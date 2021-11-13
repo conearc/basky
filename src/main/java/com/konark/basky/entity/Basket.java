@@ -1,22 +1,17 @@
 package com.konark.basky.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class Basket {
     private int basketId;
-    private Time time;
-    private int PlayerId;
-    private int MatchId;
-
-    public Basket(int basketId, Time time, int playerId, int matchId) {
-        this.basketId = basketId;
-        this.time = time;
-        PlayerId = playerId;
-        MatchId = matchId;
-    }
-
-    public Basket() {
-    }
+    @DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
+    private LocalDateTime time;
+    private int playerId;
+    private int matchId;
+    private int value;
 
     public int getBasketId() {
         return basketId;
@@ -26,37 +21,35 @@ public class Basket {
         this.basketId = basketId;
     }
 
-    public Time getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
     public int getPlayerId() {
-        return PlayerId;
+        return playerId;
     }
 
     public void setPlayerId(int playerId) {
-        PlayerId = playerId;
+        this.playerId = playerId;
     }
 
     public int getMatchId() {
-        return MatchId;
+        return matchId;
     }
 
     public void setMatchId(int matchId) {
-        MatchId = matchId;
+        this.matchId = matchId;
     }
 
-    @Override
-    public String toString() {
-        return "Basket{" +
-                "basketId=" + basketId +
-                ", time=" + time +
-                ", PlayerId=" + PlayerId +
-                ", MatchId=" + MatchId +
-                '}';
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }

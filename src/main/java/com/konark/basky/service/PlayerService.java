@@ -13,6 +13,7 @@ import java.util.Objects;
 public class PlayerService {
     @Autowired
     private PlayerRepo playerRepo;
+    public Object getPlayerById(int id){return playerRepo.getPlayerById(id);};
 
     public void createPlayer(Player player) {
         playerRepo.createPlayer(player);

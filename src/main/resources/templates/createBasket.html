@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:fragment="header" th:replace="header :: header">
+<body class="bg-gradient-primary">
+
+<div class="my-form">
+
+    <form class="user" action="#" method="POST" th:action="@{|/createBasket/${id}|}" th:object="${basket}" >
+
+        <div class="form-group">
+            <input type="datetime-local"  class="form-control item" placeholder="time" th:field="${basket.time}">
+        </div>
+        <div class="col-lg-3" th:object="${player}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${basket.playerId}">
+                <option value="0">Select Player</option>
+                <option th:each="player : ${players}"
+                        th:value="${player.playerId}"
+                        th:text="${player.playerId}+' : '+${player.firstName}+ ${player.lastName}" ></option>
+            </select>
+        </div>
+        <div class="col-lg-3" th:object="${basket}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${basket.value}">
+                <option value="0">Select Points Scored</option>
+                <option th:value=1 th:text="1"></option>
+                <option th:value=2 th:text="2"></option>
+                <option th:value=3 th:text="3"></option>
+
+            </select>
+        </div>
+
+
+
+
+        <button style="color:white;" type="submit" class="btn btn-primary btn-user btn-block">
+            Add basket
+        </button>
+    </form>
+
+</div>
+<!--<script th:replace="site/layouts/toast :: toast"></script>-->
+</body>
+</html>
