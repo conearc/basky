@@ -12,13 +12,14 @@ public class Coach {
     private  String lastName;
     private String phoneNo;
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private LocalDate dob;
+    private Date dob;
     private int pin;
     private String city;
     private int houseNo;
     private String street;
     private int teamId;
     private String username;
+    private String email;
 
     public int getCoachId() {
         return CoachId;
@@ -52,11 +53,11 @@ public class Coach {
         this.phoneNo = phoneNo;
     }
 
-    public LocalDate getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
@@ -108,37 +109,13 @@ public class Coach {
         this.username = username;
     }
 
-    public Coach() {
+    public String getEmail() {
+        return email;
     }
 
-    public Coach(int coachId, String firstName, String lastName, String phoneNo, LocalDate dob, int pin, String city, int houseNo, String street, int teamId, String username) {
-        CoachId = coachId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNo = phoneNo;
-        this.dob = dob;
-        this.pin = pin;
-        this.city = city;
-        this.houseNo = houseNo;
-        this.street = street;
-        this.teamId = teamId;
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Coach{" +
-                "CoachId=" + CoachId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNo='" + phoneNo + '\'' +
-                ", dob=" + dob +
-                ", pin=" + pin +
-                ", city='" + city + '\'' +
-                ", houseNo=" + houseNo +
-                ", street='" + street + '\'' +
-                ", teamId=" + teamId +
-                ", username='" + username + '\'' +
-                '}';
-    }
 }
+

@@ -45,17 +45,14 @@ public class AuthenticationController {
         try {
             if (authenticationService.checkLoginData(username, password)) {
                 authenticationService.loginUser(session, username);
-
-                messageService.redirectWithSuccessMessage(redirectAttributes, "Successfully logged in.");
                 return "redirect:/";
             }
-            errorMessage = "Incorrect password.";
         } catch (Exception e) {
             errorMessage = "No user with this username found.";
+            System.out.println(e.toString());
         }
 
         model.addAttribute("loginData", loginData);
-        messageService.displayErrorMessage(model, errorMessage);
         System.out.println(errorMessage);
         return "login";
     }

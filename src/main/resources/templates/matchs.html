@@ -2,6 +2,10 @@
 <html lang="en">
 <head th:fragment="header" th:replace="header :: header">
 <body>
+<div class="runningMatch">
+    <h1>Running Match</h1>
+
+</div>
 <tr th:each="match: ${matchs}" >
 <div class="row">
     <div class="col-lg-12">
@@ -11,7 +15,7 @@
                 <div class="team-details w-100 text-center">
                     <h3></td> <span></span></h3>
                     <ul class="list-unstyled">
-                        <li><td th:text="${match.team1Id}"></td></li>
+                        <li><td th:text="${match.team1.teamName}"></td></li>
 <!--                        <li>Eadie Salinas (12)</li>-->
 <!--                        <li>Ashton Allen (10)</li>-->
 <!--                        <li>Baxter Metcalfe (5)</li>-->
@@ -21,22 +25,127 @@
             <div class="team-2 w-50">
                 <div class="team-details w-100 text-center">
 
-                    <h3><span></span></h3>
+                    <h3></td> <span></span></h3>
                     <ul class="list-unstyled">
-                        <li><td th:text="${match.team2Id}"></td> </li>
+                        <li><td th:text="${match.team2.teamName}"></td> </li>
 <!--                        <li>Arham Stark (8)</li>-->
 <!--                        <li>Stephan Murillo (9)</li>-->
 <!--                        <li>Ned Ritter (5)</li>-->
                     </ul>
+
                 </div>
+
+
+
             </div>
-            <button>
-                <a href="/createPlayer" id="matchDetail" >create player </a>
-            </button>
+
+
+
         </div>
+        <button>
+            <a th:href="@{|/match/${match.matchId}|}" >Continue Match</a>
+        </button>
     </div>
 
 </div>
 </tr>
+<div class="runningMatch">
+    <h1>Upcoming  Match</h1>
+
+</div>
+<tr th:each="match: ${upcomingMatchs}" >
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex team-vs">
+                <span class="score"><td th:text="${match.team1Score}"></td>-<td th:text="${match.team2Score}"></td></span>
+                <div class="team-1 w-50">
+                    <div class="team-details w-100 text-center">
+                        <h3></td> <span></span></h3>
+                        <ul class="list-unstyled">
+                            <li><td th:text="${match.team1.teamName}"></td></li>
+                            <!--                        <li>Eadie Salinas (12)</li>-->
+                            <!--                        <li>Ashton Allen (10)</li>-->
+                            <!--                        <li>Baxter Metcalfe (5)</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="team-2 w-50">
+                    <div class="team-details w-100 text-center">
+
+                        <h3></td> <span></span></h3>
+                        <ul class="list-unstyled">
+                            <li><td th:text="${match.team2.teamName}"></td> </li>
+                            <!--                        <li>Arham Stark (8)</li>-->
+                            <!--                        <li>Stephan Murillo (9)</li>-->
+                            <!--                        <li>Ned Ritter (5)</li>-->
+                        </ul>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</tr>
+
+</body>
+<div class="runningMatch">
+    <h1>Finished Match</h1>
+
+</div>
+<tr th:each="match: ${finishedMatchs}" >
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex team-vs">
+                <span class="score"><td th:text="${match.team1Score}"></td>-<td th:text="${match.team2Score}"></td></span>
+                <div class="team-1 w-50">
+                    <div class="team-details w-100 text-center">
+                        <h3></td> <span></span></h3>
+                        <ul class="list-unstyled">
+                            <li><td th:text="${match.team1.teamName}"></td></li>
+                            <!--                        <li>Eadie Salinas (12)</li>-->
+                            <!--                        <li>Ashton Allen (10)</li>-->
+                            <!--                        <li>Baxter Metcalfe (5)</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="team-2 w-50">
+                    <div class="team-details w-100 text-center">
+
+                        <h3></td> <span></span></h3>
+                        <ul class="list-unstyled">
+                            <li><td th:text="${match.team2.teamName}"></td> </li>
+                            <!--                        <li>Arham Stark (8)</li>-->
+                            <!--                        <li>Stephan Murillo (9)</li>-->
+                            <!--                        <li>Ned Ritter (5)</li>-->
+                        </ul>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</tr>
+<div class="col-lg-4">
+    <button class="button">
+        <a href="/createMatch" class="button-link" >createMatch</a>
+    </button>
+</div>
+
 </body>
 </html>

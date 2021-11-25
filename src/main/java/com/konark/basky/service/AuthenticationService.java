@@ -39,5 +39,20 @@ public class AuthenticationService {
         return getCurrentUser(session) != null;
     }
 
+    public String getUserType(HttpSession session) {
+        try {
+            return session.getAttribute("userType").toString();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Boolean IsAdmin(HttpSession session) {
+        return getUserType(session).equals("admin");
+    }
+
+    public Boolean IsCoach(HttpSession session) {
+        return getUserType(session).equals("coach");
+    }
 
 }

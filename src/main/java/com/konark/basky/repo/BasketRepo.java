@@ -34,4 +34,8 @@ public class BasketRepo {
         String sql = "SELECT * FROM basket;";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Basket.class));
     }
+    public List<Basket> getBasketsMatch(int matchId) {
+        String sql = "SELECT * FROM basket where matchId=?;";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Basket.class),new Object[] {matchId});
+    }
 }

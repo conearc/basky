@@ -20,8 +20,12 @@ public class FoulRepo {
     }
     public void createFoul(Foul foul)
     {
-        String sql = "INSERT INTO foul(time, description, playerId,matchId,umpireId) VALUES (?, ?, ?,?,?)";
-        jdbcTemplate.update(sql,foul.getTime(),foul.getPlayerId(),foul.getMatchId());
+        String sql = "INSERT INTO foul( time, description , playerId , matchId , umpireId ) VALUES (?, ?, ?,?,?)";
+        System.out.println(foul.getPlayerId());
+        System.out.println(foul.getMatchId());
+        System.out.println(foul.getUmpireId());
+
+        jdbcTemplate.update(sql,foul.getTime(),foul.getDescription(),foul.getPlayerId(),foul.getMatchId(),foul.getUmpireId());
     }
     public void update(Foul foul) {
         String sql = "UPDATE  foul SET time =?, description=?,playerId =?,  matchId=?, umpireId=? where foulId=?";

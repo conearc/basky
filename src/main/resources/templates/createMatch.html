@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:fragment="header" th:replace="header :: header">
+<body class="bg-gradient-primary">
+
+<div class="my-form">
+
+    <form class="user" action="#" method="POST" th:action="@{|/createMatch}" th:object="${match}" >
+
+
+        <div class="col-lg-3" th:object="${team}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${match.team1Id}">
+                <option value="0">Select Team 1</option>
+                <option th:each="team : ${team1s}"
+                        th:value="${team.teamId}"
+                        th:text="${team.teamId}+' : '+${team.teamName}" ></option>
+            </select>
+        </div>
+        <div class="col-lg-3" th:object="${team}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${match.team2Id}">
+                <option value="0">Select Team 2</option>
+                <option th:each="team : ${team2s}"
+                        th:value="${team.teamId}"
+                        th:text="${team.teamId}+' : '+${team.teamName}" ></option>
+            </select>
+        </div>
+        <div class="col-lg-3" th:object="${umpire}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${match.umpireId}">
+                <option value="0">Select umpire</option>
+                <option th:each="umpire : ${umpires}"
+                        th:value="${umpire.umpireId}"
+                        th:text="${umpire.umpireId}+' : '+${umpire.firstName}" ></option>
+            </select>
+        </div>
+        <div class="col-lg-3" th:object="${sponsor}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${match.sponsorId}">
+                <option value="0">Select sponsor</option>
+                <option th:each="sponsor : ${sponsors}"
+                        th:value="${sponsor.sponsorId}"
+                        th:text="${sponsor.sponsorId}+' : '+${sponsor.sponsorName}" ></option>
+            </select>
+        </div>
+        <div class="col-lg-3" th:object="${org}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${match.orgId}">
+                <option value="0">Select org</option>
+                <option th:each="org : ${orgs}"
+                        th:value="${org.orgId}"
+                        th:text="${org.orgId}+' : '+${org.firstName}" ></option>
+            </select>
+        </div>
+        <div class="col-lg-3" th:object="${court}">
+            <select class="form-control" id="testOrder" name="testOrder" th:field="${match.courtId}">
+                <option value="0">Select court</option>
+                <option th:each="court : ${courts}"
+                        th:value="${court.courtId}"
+                        th:text="${court.courtId}+' : '+${court.courtName}" ></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="datetime-local"  class="form-control item" placeholder="time" th:field="${match.date}">
+        </div>
+
+<!--        <div class="col-lg-3" th:object="${basket}">-->
+<!--            <select class="form-control" id="testOrder" name="testOrder" th:field="${basket.value}">-->
+<!--                <option value="0">Select Points Scored</option>-->
+<!--                <option th:value=1 th:text="1"></option>-->
+<!--                <option th:value=2 th:text="2"></option>-->
+<!--                <option th:value=3 th:text="3"></option>-->
+
+<!--            </select>-->
+<!--        </div>-->
+
+
+
+
+        <button style="color:white;" type="submit" class="btn btn-primary btn-user btn-block">
+            Create Match
+        </button>
+    </form>
+
+</div>
+<!--<script th:replace="site/layouts/toast :: toast"></script>-->
+</body>
+</html>

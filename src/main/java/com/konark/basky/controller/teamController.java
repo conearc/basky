@@ -1,7 +1,9 @@
 package com.konark.basky.controller;
 
+import com.konark.basky.entity.Interest;
 import com.konark.basky.entity.Team;
 import com.konark.basky.entity.User;
+import com.konark.basky.repo.InterestRepo;
 import com.konark.basky.repo.TeamRepo;
 import com.konark.basky.service.MessageService;
 import com.konark.basky.service.TeamService;
@@ -28,6 +30,8 @@ public class teamController {
     private TeamService teamService;
     @Autowired
     private TeamRepo teamRepo;
+    @Autowired
+    private InterestRepo interestRepo;
     @GetMapping("/createTeam")
     public String createTeam(Model model, HttpSession session) {
 
@@ -86,6 +90,26 @@ public class teamController {
         messageService.displayErrorMessage(model, "team Does not exist");
         model.addAttribute("team", team);
         return "updateTeam";
+    }
+    @GetMapping("/createTeam/{id}")
+    public String createTeamInterest(@PathVariable("id") int interestId,Model model, HttpSession session) {
+        Interest interest= interestRepo.getInterest(interestId);
+        Team team = new Team();
+        team.setTeamName(interest.getTeamName());
+
+        model.addAttribute("team", team);
+        return "createTeam";
+    }
+    @PostMapping("/createTeam/{id}")
+    public String createTeamInterest(@PathVariable("id") int interestId, @ModelAttribute Team team, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
+
+
+
+
+        teamService.createTeam(team);
+
+
+        return "redirect:/interests";
     }
 
 }

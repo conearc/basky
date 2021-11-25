@@ -4,6 +4,7 @@ import com.konark.basky.entity.Basket;
 import com.konark.basky.entity.Match;
 import com.konark.basky.entity.Player;
 import com.konark.basky.entity.Team;
+import com.konark.basky.repo.BasketRepo;
 import com.konark.basky.service.BasketService;
 import com.konark.basky.service.MatchService;
 import com.konark.basky.service.MessageService;
@@ -31,6 +32,8 @@ public class BasketController {
     private MatchService matchService;
     @Autowired
     private MessageService messageService;
+    @Autowired
+    private BasketRepo basketRepo;
 
     @GetMapping("/createBasket/{id}")
     public String createBasket(@PathVariable("id") int  matchId,Model model, HttpSession session) {
@@ -59,7 +62,7 @@ public class BasketController {
         else{
             match.setTeam2Score(match.getTeam2Score()+ basket.getValue());
         }
-
+        matchService.updateMatch(match);
         String errorMessage = null;
 
 //        System.out.println(username);
@@ -70,7 +73,34 @@ public class BasketController {
         basketService.createBasket(basket);
 
         messageService.redirectWithSuccessMessage(redirectAttributes, "Successfully created basket user.");
-        return "redirect:/";
+        return "redirect:/match/{id}";
+    }
+    @GetMapping("/baskets/{id}")
+    public String allBasketsMatch(@PathVariable("id") int matchId, Model model, HttpSession Session){
+        List<Basket> baskets= basketRepo.getBasketsMatch(matchId);
+        model.addAttribute("baskets",baskets);
+        model.addAttribute("id",matchId);
+
+        return "baskets";
+    }
+    @GetMapping("/updateBasket/{id}")
+    public String updateBasket(@PathVariable("id") int basketId, Model model, HttpSession Session){
+        Basket basket = basketRepo.getBasketById(basketId);
+        model.addAttribute("basket", basket);
+        model.addAttribute("id",  basketId);
+        return "updateBasket";
+    }
+    @PostMapping("/updateBasket/{id}")
+    public String updateTeam(@PathVariable("id") int basketId,Basket basket, Model model, HttpSession httpSession,RedirectAttributes attributes) {
+        basket.setBasketId(basketId);
+        try{
+            basketRepo.update(basket);
+            messageService.redirectWithSuccessMessage(attributes, "Team updated successfully.");
+            return "redirect:/baskets/${basket.matchId}";
+        }catch (Exception e){}
+        messageService.displayErrorMessage(model, "team Does not exist");
+        model.addAttribute("basket", basket);
+        return "updateBasket";
     }
 
 

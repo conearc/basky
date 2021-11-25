@@ -20,7 +20,7 @@ public class StealRepo {
     }
     public void createSteal(Steal steal)
     {
-        String sql = "INSERT INTO steal(time, playerId,,matchId) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO steal(time, playerId,matchId) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,steal.getTime(),steal.getPlayerId(),steal.getMatchId());
     }
     public void update(Steal steal) {

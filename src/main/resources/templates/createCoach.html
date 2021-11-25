@@ -7,36 +7,33 @@
 <div class="my-form">
 
                                 <form class="user" action="#" method="POST" th:action="@{/createCoach}" th:object="${user}" >
-                                    <div class="form-group">
-                                        <input type="text" required="required" class="form-control item" placeholder="Username" th:field="${user.username}">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" required="required" class="form-control item"placeholder="Password" th:field="${user.password}">
-                                    </div>
                                     <div th:object="${coach}">
                                 <div class="form-group">
                                     <input type="text" required="required" class="form-control item" placeholder="firstName" th:field="${coach.firstName}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="required" class="form-control item" placeholder="lastName" th:field="${coach.lastName}">
+                                    <input type="text"  class="form-control item" placeholder="lastName" th:field="${coach.lastName}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="required" class="form-control item" placeholder="phoneNo" th:field="${coach.phoneNo}">
+                                    <input type="integer" required="required" class="form-control item" placeholder="phoneNo" th:field="${coach.phoneNo}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" required="required" class="form-control item" placeholder="dob" th:field="${coach.dob}">
+                                    <input type="date"  class="form-control item" placeholder="dob" th:field="${coach.dob}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="integer" required="required" class="form-control item" placeholder="pin" th:field="${coach.pin}">
+                                    <input type="integer"  class="form-control item" placeholder="pin" th:field="${coach.pin}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="required" class="form-control item" placeholder="city" th:field="${coach.city}">
+                                    <input type="text" class="form-control item" placeholder="city" th:field="${coach.city}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="required" class="form-control item" placeholder="houseNo" th:field="${coach.houseNo}">
+                                    <input type="integer"  class="form-control item" placeholder="houseNo" th:field="${coach.houseNo}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="required" class="form-control item" placeholder="street" th:field="${coach.street}">
+                                    <input type="text"  class="form-control item" placeholder="street" th:field="${coach.street}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" required="required" class="form-control item" placeholder="email" th:field="${coach.email}">
                                 </div>
                                         <div class="col-lg-3" th:object="${team}">
                                             <select class="form-control" id="testOrder" name="testOrder" th:field="${coach.teamId}">

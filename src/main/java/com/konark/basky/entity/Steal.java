@@ -1,22 +1,16 @@
 package com.konark.basky.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class Steal {
     private int stealId;
-    private Time time;
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime time;
     private int PlayerId;
     private int MatchId;
-
-    public Steal(int stealId, Time time, int playerId, int matchId) {
-        this.stealId = stealId;
-        this.time = time;
-        PlayerId = playerId;
-        MatchId = matchId;
-    }
-
-    public Steal() {
-    }
 
     public int getStealId() {
         return stealId;
@@ -26,11 +20,11 @@ public class Steal {
         this.stealId = stealId;
     }
 
-    public Time getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
@@ -48,15 +42,5 @@ public class Steal {
 
     public void setMatchId(int matchId) {
         MatchId = matchId;
-    }
-
-    @Override
-    public String toString() {
-        return "Steal{" +
-                "stealId=" + stealId +
-                ", time=" + time +
-                ", PlayerId=" + PlayerId +
-                ", MatchId=" + MatchId +
-                '}';
     }
 }

@@ -20,7 +20,7 @@ public class BlockRepo {
     }
     public void createBlock(Block block)
     {
-        String sql = "INSERT INTO block(time, playerId,,matchId) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO block(time, playerId,matchId) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,block.getTime(),block.getPlayerId(),block.getMatchId());
     }
     public void update(Block block) {

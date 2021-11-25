@@ -1,14 +1,18 @@
 package com.konark.basky.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class Rebound {
     private int reboundId;
-    private Time time;
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime time;
     private int PlayerId;
     private int MatchId;
 
-    public Rebound(int reboundId, Time time, int playerId, int matchId) {
+    public Rebound(int reboundId, LocalDateTime time, int playerId, int matchId) {
         this.reboundId = reboundId;
         this.time = time;
         PlayerId = playerId;
@@ -26,11 +30,11 @@ public class Rebound {
         this.reboundId = reboundId;
     }
 
-    public Time getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 

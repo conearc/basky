@@ -24,8 +24,6 @@ public class UserService {
     public void createCoach(String username, String password, Coach coach)
     {
         userRepo.createUser(username,password,"coach");
-        coach.setUsername(username);
-        coachRepo.createCoach(coach);
     }
 
 

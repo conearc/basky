@@ -15,12 +15,13 @@ public class ReboundRepo {
 
     public Rebound getReboundById(int reboundId)
     {
-        String sql = "SELECT * FROM rebound WHERE reboundId = ?";
+        String sql = "SELECT * FROM reb" +
+                "ound WHERE reboundId = ?";
         return jdbcTemplate.queryForObject(sql,  new BeanPropertyRowMapper<>(Rebound.class) , new Object[] {reboundId});
     }
     public void createRebound(Rebound rebound)
     {
-        String sql = "INSERT INTO rebound(time, playerId,,matchId) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO rebound (time, playerId,matchId) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,rebound.getTime(),rebound.getPlayerId(),rebound.getMatchId());
     }
     public void update(Rebound rebound) {

@@ -20,7 +20,7 @@ public class AssistRepo {
     }
     public void createAssist(Assist assist)
     {
-        String sql = "INSERT INTO assist(time, playerId,,matchId) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO assist(time, playerId,matchId) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,assist.getTime(),assist.getPlayerId(),assist.getMatchId());
     }
     public void update(Assist assist) {

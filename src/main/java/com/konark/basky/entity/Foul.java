@@ -1,26 +1,19 @@
 package com.konark.basky.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class Foul {
     private int foulId;
-    private Time time;
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime time;
+
     private int playerId;
     private int matchId;
     private int umpireId;
     private String description;
-
-    public Foul(int foulId, Time time, int playerId, int matchId, int umpireId, String description) {
-        this.foulId = foulId;
-        this.time = time;
-        this.playerId = playerId;
-        this.matchId = matchId;
-        this.umpireId = umpireId;
-        this.description = description;
-    }
-
-    public Foul() {
-    }
 
     public int getFoulId() {
         return foulId;
@@ -30,11 +23,11 @@ public class Foul {
         this.foulId = foulId;
     }
 
-    public Time getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
@@ -68,17 +61,5 @@ public class Foul {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Foul{" +
-                "foulId=" + foulId +
-                ", time=" + time +
-                ", playerId=" + playerId +
-                ", matchId=" + matchId +
-                ", umpireId=" + umpireId +
-                ", description='" + description + '\'' +
-                '}';
     }
 }

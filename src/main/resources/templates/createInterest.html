@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:fragment="header" th:replace="header :: header">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+<div class="my-form">
+
+    <form class="user" action="#" method="POST" th:action="@{/createInterest}" th:object="${interest}" >
+        <div class="form-group">
+            <input type="text" required="required" class="form-control item" placeholder="firstName of coach" th:field="${interest.firstName}">
+        </div>
+
+        <div class="form-group">
+            <input type="text"  class="form-control item" placeholder="lastName of coach" th:field="${interest.lastName}">
+        </div>
+        <div class="form-group">
+            <input type="number" required="required" class="form-control item" placeholder="phone number of coach" th:field="${interest.phoneNo}">
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" class="form-control item" placeholder="college name" th:field="${interest.teamName}">
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" class="form-control item" placeholder="email" th:field="${interest.email}">
+        </div>
+
+
+
+
+        <button style="color:white;" type="submit" class="btn btn-primary btn-user btn-block">
+            Interested for spardha
+        </button>
+    </form>
+
+</div>
+<!--<script th:replace="site/layouts/toast :: toast"></script>-->
+</body>
+</html>

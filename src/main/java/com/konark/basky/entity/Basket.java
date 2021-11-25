@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public class Basket {
     private int basketId;
-    @DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime time;
     private int playerId;
     private int matchId;
